@@ -1,0 +1,58 @@
+<ion-view view-title="Note Overview">
+	<ion-content>
+		<div ng-repeat="author in authors | filter: {name: whichAuthor}"><!-- Extract data from author -->
+			<ion-list class="list-inset padding"
+								ng-repeat="document in author.documents | filter: {id: whichDocument}"><!-- Extract document from author -->
+				<ion-item><!-- Display the title of document -->
+					<h2>{{document.title}}</h2>
+				</ion-item>
+
+				<ion-item class="item-image"><!-- Display the thumbnail -->
+					<a href="href="#/reader/author/{{documents.author}}"">
+						<img ng-src="{{document.thumbnail}}" alt="{{document.title}}"/>
+					</a>
+				</ion-item>
+
+				<div class="tabs-striped"><!-- Dispay the download and take a look button -->
+					<div class="tabs tabs-icon-top">
+						<!-- button button-clear button-royal button-small  -->
+						<a href="#/reader/browse/{{document.id}}" class="tab-item">
+							<i class="icon icon-left ion-android-download"></i> Download
+						</a>
+						<!-- button button-clear button-positive button-small -->
+						<a href="#/reader/author/{{documents.author}}" class="tab-item">
+							<i class="icon icon-left ion-chevron-right"></i> Take a Look
+						</a>
+					</div>
+				</div>
+    	</ion-list><!-- End of document section -->
+
+			<ion-list class="list-inset padding"><!-- Begining of author section -->
+				<ion-item class="item-avatar" href="#/reader/author/{{documents.author}}"><!-- Display author basic info -->
+					<img ng-src="{{author.avatar}}" alt="{{author.name}}"/>
+					<h2>{{author.name}}</h2>
+					<p>{{author.stars}}
+						<i class="icon ion-star"></i>
+					</p>
+				</ion-item>
+
+				<ion-item>
+					<!-- <a href="" class="button button-clear button-balanced button-small icon-left ion-person">{{document.author}}</a> -->
+					<div class="button-bar">
+						<button class="button button-clear button-royal" ng-click="addStar(author)" ng-hide="author.star">
+							<i class="icon ion-star"></i>
+							<i class="icon ion-plus"></i>
+						</button>
+						<button class="button button-clear button-royal" ng-click="removeStar(author)" ng-show="author.star">
+							<i class="icon ion-star"></i>
+							<i class="icon ion-minus"></i>
+						</button>
+						<button class="button button-clear button-positive">
+							<i class="icon ion-chevron-right"></i> Overview
+						</button>
+					</div>
+				</ion-item>
+			</ion-list>
+	</div>
+  </ion-content>
+</ion-view>
