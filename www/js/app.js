@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('reader', ['ionic', 'youtube-embed'])
+angular.module('latte', ['ionic', 'youtube-embed'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     //Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -38,31 +38,47 @@ angular.module('reader', ['ionic', 'youtube-embed'])
 // Routes
 .config(function($stateProvider, $urlRouterProvider){
   $stateProvider
-    .state('reader', {
-      url: '/reader',
+    .state('auth', {
+      url: '/auth',
+      abstract: true,
+      templateUrl: 'templates/auth/auth.html',
+      controller: 'AuthCtrl'
+    })
+    .state('auth.log', {
+      url: '/auth/log',
+      templateUrl: 'templates/auth/log.html',
+      controller: 'AuthCtrl'
+    })
+    .state('auth.sign', {
+      url: '/auth/sign',
+      templateUrl: 'templates/auth/sign.html',
+      controller: 'AuthCtrl'
+    })
+    .state('latte', {
+      url: '/latte',
       abstract: true,
       templateUrl: 'templates/sideMenu.html',
       controller: 'MainCtrl'
     })
-    .state('reader.dashboard', {
-      url: '/dashboard',
+    .state('latte.home', {
+      url: '/home',
       views: {
         'main-content': {
-          templateUrl: 'templates/dashboard.html',
-          controller: 'DashboardCtrl'
+          templateUrl: 'templates/home.html',
+          controller: 'HomeCtrl'
         }
       }
     })
-    .state('reader.documents', {
+    .state('latte.note', {
       url: '/note',
       views: {
         'main-content': {
-          templateUrl: 'templates/noteList.html',
+          templateUrl: 'templates/note/list.html',
           controller: 'NoteCtrl'
         }
       }
     })
-    .state('reader.new', {
+    .state('latte.new', {
       url: '/note/new',
       views: {
         'main-content': {
@@ -71,7 +87,7 @@ angular.module('reader', ['ionic', 'youtube-embed'])
         }
       }
     })
-    .state('reader.more', {
+    .state('latte.more', {
       url: '/more/:user/:id', //:user is temporary
       views: {
         'main-content': {
@@ -80,7 +96,7 @@ angular.module('reader', ['ionic', 'youtube-embed'])
         }
       }
     })
-    .state('reader.favoris', {
+    .state('latte.favoris', {
       url: '/favoris',
       views: {
         'main-content': {
@@ -89,7 +105,7 @@ angular.module('reader', ['ionic', 'youtube-embed'])
         }
       }
     })
-    .state('reader.player', {
+    .state('latte.player', {
       url: '/player',
       views: {
         'main-content': {
@@ -98,7 +114,7 @@ angular.module('reader', ['ionic', 'youtube-embed'])
         }
       }
     })
-    .state('reader.parameter', {
+    .state('latte.parameter', {
       url: '/parameter',
       views: {
         'main-content': {
@@ -108,13 +124,15 @@ angular.module('reader', ['ionic', 'youtube-embed'])
       }
     });
 
-    $urlRouterProvider.otherwise('/reader/dashboard');
+    $urlRouterProvider.otherwise('/latte/home'); // Si connecter rediriger vers /latte/home sinon sur /auth/log
 })
 
 //Controllers
+.controller('AuthCtrl', function(){
+})
 .controller('MainCtrl', function(){
 })
-.controller('DashboardCtrl', function(){
+.controller('HomeCtrl', function(){
 })
 .controller('NoteCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
   $http.get('js/note.json').success(function(res){
