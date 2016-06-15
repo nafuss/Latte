@@ -1,0 +1,27 @@
+<ion-view view-title="Login">
+  <ion-content class="auth-screen">
+    <!-- Set main content vertical align-->
+    <div id="pusher-log">
+    </div>
+    <!-- Login formulaire-->
+    <ion-list class="list-inset">
+      <div class="col col-80 col-offset-10">
+        <label class="item item-input">
+          <input type="text" placeholder="Identifiant" ng-model="user.identifiant">
+        </label>
+      </div>
+
+      <div class="col col-80 col-offset-10">
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="user.password">
+        </label>
+      </div>
+    </ion-list><!-- End formulaire-->
+
+    <div class="col col-50 col-offset-25">
+      <button class="button button-block button-latte" ng-click="login()">
+        Login
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

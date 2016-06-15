@@ -1,0 +1,55 @@
+<ion-view view-title="YouTube Player">
+  <ion-content padding="false">
+    <ion-list class="list">
+      <!-- Search Bar-->
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search" ng-model="search.term" ng-submit="reSearch(search)"><!-- Fix col length-->
+        </label>
+        <button class="button button-small button-clear button-assertive" ng-click="reSearch()"><i class="icon ion-ios-search placeholder-icon"></i></button>
+      </div>
+    </ion-list>
+    <ion-list>
+      <div class="list card" ng-repeat="video in videos">
+        <ion-item class="item-thumbnail item-icon-right">
+          <h2>{{video.snippet.title}}</h2>
+          <p>{{video.snippet.publishedAt | limitTo: 10}}</p>
+          <!-- Add video to playlist -->
+          <ion-option-button class="button-youtube1"
+                             ng-click="choosePlaylist()"
+                             ng-hide="video.favoris">
+            <i class="icon ion-android-list"></i>
+          </ion-option-button>
+          <!-- Copie link of video and prepare to send it -->
+          <ion-option-button class="button-youtube2"
+                             ng-click="newMessage(video.id.videoId)"
+                             ng-hide="">
+            <i class="icon ion-link"></i>
+          </ion-option-button>
+        </ion-item>
+
+        <!-- Add to playlist -->
+        <ion-list ng-show="video.choose" ng-repeat="playlist in choose.playlist">
+          <ion-item>
+            <span>{{playlist.title}}</span>
+            <button class="button button-royal button-small" ng-click="addToPlaylist($index, video)">Pick</button>
+          </ion-item>
+        </ion-list>
+
+        <!-- Youtube embeded player-->
+        <ion-item class="item-image">
+          <div class="embed-responsive embed-responsive-16by9">
+            <youtube-video class="embed-responsive-item" video-id="video.id.videoId" player-vars="playerVars"></youtube-video>
+          </div>
+        </ion-item>
+
+      </div>
+
+      <!-- <ion-infinite-scroll
+          on-infinite="loadMore()"
+          distance="1%">
+      </ion-infinite-scroll> -->
+
+    </ion-list>
+  </ion-content>
+</ion-view>

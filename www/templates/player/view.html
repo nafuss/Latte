@@ -1,0 +1,32 @@
+<ion-view title="Playlist">
+  <ion-content>
+    <ion-list class="list card">
+      <ion-item class="item-thumbnail item-icon-right">
+        <!-- IFrame Youtube -->
+        <div class="embed-responsive embed-responsive-16by9">
+          <youtube-video class="embed-responsive-item" video-id="player.videoId" player="PlaylistPlayer"></youtube-video>
+        </div>
+        <!-- Playlist list -->
+        <ion-list class="list" ng-repeat="playlist in playlists | filter: currentPlaylist">
+          <!-- Playlist title -->
+          <ion-item class="item-divider item-icon-left item-icon-right">
+            <i class="icon ion-headphone"></i>
+            <h1>{{playlist.title}}</h1>
+            <i class="icon ion-play start-play" ng-click="playPlaylist()"></i>
+          </ion-item>
+          <!-- List of video -->
+          <ion-item class="item-icon-left" ng-repeat="video in playlist.video">
+            {{video.title}}
+            <ion-option-button class="button-youtube2"
+                               ng-click="removeVideo(video.id)"
+                               ng-hide="video.favoris">
+              <i class="icon ion-close"></i>
+            </ion-option-button>
+
+          </ion-item><!-- End video list-->
+        </ion-list><!-- End playlist list-->
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

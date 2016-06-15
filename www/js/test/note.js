@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose')
+var Schema = mongoose.Schema
 
 var Author = new Schema({
   name: String,
@@ -14,4 +14,4 @@ var Author = new Schema({
       stars: { type: Number, default: 0 },
     }
   ]
-});
+})

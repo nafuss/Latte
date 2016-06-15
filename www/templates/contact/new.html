@@ -1,0 +1,25 @@
+<ion-view view-title="New chat">
+  <ion-content>
+    <ion-list class="list-inset">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">To: </span>
+        <input type="text" placeholder="To:" ng-model="newMessage.to">
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Link to video: </span>
+        <input type="text" placeholder="Link to video:" ng-model="newMessage.link">
+        <ion-item class="item-image" ng-show="newMessage.link">
+          <div class="embed-responsive embed-responsive-16by9"><youtube-video class="embed-responsive-item" video-id="newMessage.link"></youtube-video></div>
+        </ion-item>
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Message:</span>
+        <input type="text" placeholder="Message:" ng-model="newMessage.message_body">
+      </label>
+
+      <button class="button button-full button-latte" ng-click="createMessage()">Send New Message</button>
+    </ion-list>
+  </ion-content>
+</ion-view>

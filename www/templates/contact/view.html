@@ -1,0 +1,37 @@
+<ion-view view-title="{{whichContact}}">
+	<ion-content>
+			<ion-list class="list-inset padding">
+				<ion-item ng-repeat="chat in allChat | filter: createdAt">
+					<!-- if chat.to == user -->
+						<ion-card ng-if="chat.to !== whichContact" class="item-icon-right" ng-show="chat.link">
+							<i class="icon ion-android-arrow-dropdown"></i>
+							<p>{{chat.message_body}}</p>
+							<div class="embed-responsive embed-responsive-16by9 item-image"><youtube-video class="embed-responsive-item" video-id="chat.link"></youtube-video></div>
+							<!-- Remove message hidden button -->
+							<ion-option-button class="button-assertive"
+																 ng-click="delMessage()">
+								<i class="icon ion-trash-b"></i>
+							</ion-option-button>
+						</ion-card>
+
+					<!-- if chat.to == user contact -->
+						<ion-card ng-if="chat.to == whichContact" class="item-icon-left" ng-show="chat.link">
+							<i class="icon ion-android-arrow-dropup"></i>
+							<p>{{chat.message_body}}</p>
+							<div class="embed-responsive embed-responsive-16by9 item-image"><youtube-video class="embed-responsive-item" video-id="chat.link"></youtube-video></div>
+							<!-- Remove message hidden button -->
+							<ion-option-button class="button-assertive"
+																 ng-click="delMessage(chat)">
+								<i class="icon ion-trash-b"></i>
+							</ion-option-button>
+						</ion-card>
+			</ion-item>
+  </ion-content>
+	<div class="bar bar-footer">
+		<label class="item-input-wrapper">
+      <input type="text" placeholder="Message" ng-model="message_body">
+    </label>
+    <button class="button button-small" ng-click="addMessage()">Send</button>
+	</div>
+
+</ion-view>

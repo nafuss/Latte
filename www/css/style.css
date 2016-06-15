@@ -1,7 +1,58 @@
 /* Empty. Add your own CSS if you like */
+/* Auth background */
+.auth-screen {
+  background: url(../img/latte-800x1280.jpg) no-repeat center;
+}
+
+/* Set of Latte default color */
+.button-latte, .tabs-color-latte {
+  background-color: #303030;
+  color: #FFFFFF;
+}
+.bar-latte{
+  /*background: url(../img/coffee-texture.jpg) no-repeat center;
+  background-size: cover;*/
+  background: #424242; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#424242 15% ,#303030 15%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#424242 15% ,#303030 15%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient( #424242 15%,#303030 15%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient( #424242 15%,#303030 15%); /* Standard syntax */
+      color: #FFFFFF
+}
+.button-latte:hover {
+  background-color: #424242;
+  color: #FFFFFF;
+}
+/* player button */
+.button-youtube1{
+  background-color: #e52d27;
+  color: #FFFFFF;
+}
+.button-youtube2{
+  background-color: #b31217;
+  color: #FFFFFF;
+}
+  .button-youtube1:hover{
+    background-color: #FFFFFF;
+    color: #e52d27;
+  }
+  .button-youtube2:hover{
+    background-color: #FFFFFF;
+    color: #b31217;
+  }
+/* Pusher ->manual vertical center */
+#pusher-log{
+  height: 20%;
+}
+#pusher-reg{
+  height: 15%;
+}
+
 .favoris{
   background-color: #EEE8D6;
 }
+
+/* Youtube player style */
 .embed-responsive {
      position: relative;
      display: block;
@@ -23,3 +74,12 @@
      height: 100%;
      border: 0;
    }
+
+.start-play:active{
+  background: #424242; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#424242 15% ,#303030 15%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#424242 15% ,#303030 15%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient( #424242 15%,#303030 15%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient( #424242 15%,#303030 15%); /* Standard syntax */
+  color: #FFFFFF;
+}

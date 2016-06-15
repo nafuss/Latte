@@ -1,0 +1,53 @@
+<ion-view view-title="Register">
+  <ion-content class="auth-screen">
+    <!-- Set main content vertical align-->
+    <div id="pusher-reg">
+    </div>
+
+    <!-- Register formulaire -->
+    <ion-list class="list-inset">
+      <div class="col col-80 col-offset-10">
+        <label class="item item-input ">
+          <input type="text" placeholder="Identifiant" ng-model="user.identifiant">
+        </label>
+      </div>
+      <div class="col col-80 col-offset-10">
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="user.password">
+        </label>
+      </div>
+      <div class="col col-80 col-offset-10">
+        <label class="item item-input">
+          <input type="text" placeholder="Email" ng-model="user.email">
+        </label>
+      </div>
+      <div class="col col-80 col-offset-10">
+        <label class="item item-input">
+          <input type="text" placeholder="Name" ng-model="user.name">
+        </label>
+      </div>
+      <div class="col col-80 col-offset-10">
+        <label class="item item-input">
+          <input type="text" placeholder="Lastname" ng-model="user.lastname">
+        </label>
+      </div>
+      <div class="col col-80 col-offset-10">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Privacy
+          </div>
+          <select ng-model="user.status">
+            <option selected>Private</option>
+            <option>Public</option>
+          </select>
+        </label>
+      </div>
+    </ion-list> <!-- End formulaire -->
+
+    <div class="col col-50 col-offset-25">
+      <button class="button button-block button-latte" ng-click="register()">
+        Register
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

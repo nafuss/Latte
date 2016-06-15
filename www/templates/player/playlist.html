@@ -1,0 +1,13 @@
+<ion-view title="{{currentPlaylist}}">
+  <ion-content>
+    <button class="button button-latte button-full" ng-click="createPlaylist()">Create new playlist</button>
+
+    <ion-list ng-repeat="playlist in storage.playlists">
+      <ion-item class="icon-left" href="#/latte/playlist/{{playlist.title}}">
+        <i class="icon ion-headphone"></i>
+        {{playlist.title}}
+        <span class="badge badge-royal">{{playlist.video.length}}</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

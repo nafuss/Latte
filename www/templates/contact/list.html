@@ -1,0 +1,22 @@
+<ion-view view-title="Contact List">
+  <div class="bar bar-subheader item-input-inset bar-light">
+    <!-- Search Bar-->
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="Search Me" ng-model="search">
+    </label>
+  </div>
+  <ion-content class="has-subheader" [padding="false"]>
+    <ion-list>
+      <!-- Create New message-->
+      <a href="#/latte/contact/new" class="item item-divider">New Message</a>
+      <!-- List of active chat-->
+      <div ng-repeat="chat in allChat">
+        <ion-item class="" href="#/latte/contact/chat/{{chat.to}}" ng-hide="user == chat.to">
+          {{chat.to}}
+        </ion-item>
+      </div>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

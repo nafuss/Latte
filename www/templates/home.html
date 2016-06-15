@@ -1,12 +1,29 @@
 <ion-view title="Dashboard">
   <ion-content>
     <ion-list>
-        <ion-item class="item-divider">
-          <h2>Name</h2>
-        </ion-item>
-        <ion-item class="item-image">
-          <img src="http://placehold.it/100x100" alt="None"/>
-        </ion-item>
-      </ion-list>
+      <ion-item class="item-divider">
+        <div class="col col-75"><h2>Number of Playlist</h2></div>
+        <div class="col"><p>{{labels.length}}</p></div>
+      </ion-item>
+
+      <ion-item class="item-image">
+        <canvas id="doughnut" class="chart chart-doughnut"
+                chart-data="data" chart-labels="labels">
+        </canvas>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item class="item-divider">
+        <p>Latest video search</p>
+      </ion-item>
+
+      <ion-item ng-repeat="latest in search">
+        {{latest}}
+      </ion-item>
+    </ion-list>
+      <footer class="bar bar-footer">
+        <button class="button button-full button-latte" ng-click="logout()">Logout</button>
+      </footer>
   </ion-content>
 </ion-view>

@@ -1,7 +1,7 @@
 <ion-side-menus>
 <!-- Begining of main content-->
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-royal"><!-- Header Bar shared between views -->
+    <ion-nav-bar class="bar-latte"><!-- Header Bar shared between views -->
       <ion-nav-back-button class="button-clear"><i class="icon ion-chevron-left"></i> Back</ion-nav-back-button>
       <h1 class="title"></h1>
     </ion-nav-bar>
@@ -13,19 +13,16 @@
 <!-- Begining of side menu/nav menu (swipe left)-->
   <ion-side-menu side="left">
     <header class="bar bar-header bar-stable">
-      <h1 class="title">Nav</h1>
+      <h1 class="title">Latte</h1>
     </header>
 
-    <ion-content class="has-header">
+    <ion-content class="has-header side-menu">
       <ion-list class="">
-        <ion-item menu-close ng-click="login()" class="item-avatar"><img ng-src="http://placehold.it/400x400" alt="" /></ion-item>
+        <ion-item menu-close ng-click="login()"><h2>Welcome {{name}}</h2></ion-item>
         <ion-item menu-close href="#/latte/home" class="item-icon-left">Home <i class="icon ion-cube"></i></ion-item> <!-- Access dashboard -->
-        <ion-item menu-close href="#/latte/note" class="item-icon-left">List of Note <i class="icon ion-document-text"></i></ion-item> <!-- View list of document by author (cloud) -->
-        <ion-item menu-close href="#/latte/note/new" class="item-icon-left">New Note <i class="icon ion-plus"></i></ion-item> <!-- View list of document by author (cloud) -->
-        <ion-item menu-close href="#/latte/favoris" class="item-icon-left">Favoris <i class="icon ion-star"></i></ion-item> <!-- Favoris -->
-        <!--<ion-item menu-close href="#/latte/local" class="item-icon-left">Local Storage <i class="icon ion-cloud"></i></ion-item> View Local stored files -->
-        <!-- <ion-item menu-close href="#/latte/upload" class="item-icon-left">Upload <i class="icon ion-upload"></i></ion-item>  Send file on remote server -->
-        <ion-item menu-close href="#/latte/player" class="item-icon-left">YouTube Player <i class="icon ion-android-create"></i></ion-item>
+        <ion-item menu-close href="#/latte/contact" class="item-icon-left">Contact <i class="icon ion-chatbox"></i></ion-item> <!-- List of Contact -->
+        <ion-item menu-close href="#/latte/playlist" class="item-icon-left">Playlist <i class="icon ion-android-list"></i></ion-item> <!-- Favoris -->
+        <ion-item menu-close href="#/latte/player" class="item-icon-left">YouTube Player <i class="icon ion-social-youtube"></i></ion-item>
         <ion-item menu-close href="#/latte/parameter" class="item-icon-left">Parameter <i class="icon ion-gear-a"></i></ion-item><!-- Parameter -->
       </ion-list>
     </ion-content>
